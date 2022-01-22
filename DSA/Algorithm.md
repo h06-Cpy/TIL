@@ -1,3 +1,4 @@
+# Algorithm
 알고리즘: 문제를 해결하기 위한 잘 정의된 지시(=microoperation)들의 유한한 리스트
 initial state와 end state가 있어야 한다
 
