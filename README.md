@@ -5,3 +5,5 @@
 - [트리](https://github.com/h06-Cpy/TIL/blob/main/DSA/tree.md)
 - [힙](https://github.com/h06-Cpy/TIL/blob/main/DSA/heap.md)
 - [해쉬](https://github.com/h06-Cpy/TIL/blob/main/DSA/hashing.md)
+## HTTP 기본
+- [인터넷 네트워크](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/internet%20network.md)
