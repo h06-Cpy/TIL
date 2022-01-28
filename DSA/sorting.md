@@ -90,7 +90,8 @@ in-place, unstable
 
 자릿수만큼 hash table 필요
 
-1의 자리 hash table에 정렬된 순서로 대응(chaining 방식) 그 순서대로 다시 10의 자리, 100 자리... 이렇게 정렬
+1의 자리에서 hash table에 정렬된 순서로 대응(chaining 방식) ex) hash table 2에 12 -> 22 -> 92 chanining, 5에 35 -> 75 -> 85 chanining...
+그 순서대로 다시 10의 자리, 100 자리... 이렇게 정렬
 
 **Comparison이 없다!**
 
