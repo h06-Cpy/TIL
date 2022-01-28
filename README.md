@@ -6,6 +6,7 @@
 - [힙](https://github.com/h06-Cpy/TIL/blob/main/DSA/heap.md)
 - [해쉬](https://github.com/h06-Cpy/TIL/blob/main/DSA/hashing.md)
 - [정렬](https://github.com/h06-Cpy/TIL/blob/main/DSA/sorting.md)
+- [집합](https://github.com/h06-Cpy/TIL/blob/main/DSA/set.md)
 ## HTTP 기본
 - [인터넷 네트워크](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/internet%20network.md)
 - [URI와 웹 브라우저 요청 흐름](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/URI%20and%20request.md)
