@@ -105,3 +105,8 @@ IP 주소는 기억하기 어렵고 변경될 수 있음
 **DNS는 도메인 명을 ip 주소로 변환해서 컴퓨터에게 알려준다**
 
 ip 주소 기억 어려움, 변경 문제 해결!
+
+---
+출처: 모든 개발자를 위한 HTTP 웹 기본 지식 - 김영한님
+
+https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard
