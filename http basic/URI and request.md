@@ -53,3 +53,7 @@ ex) https://www.google.com:443/search?q=hello&hl=ko
 5. 서버가 받고 HTTP 응답 메시지(OK, 텍스트, UTF-8, html 문서 등) 다시 보냄(과정 1,2,3,4)
 6. 응답 패킷이 인터넷 망을 거쳐 브라우저에게 전달
 7. 웹 브라우저 HTML 렌더링을 통해 화면에 페이지가 보인다!
+---
+출처: 모든 개발자를 위한 HTTP 웹 기본 지식 - 김영한님
+
+https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard
