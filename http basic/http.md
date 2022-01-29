@@ -89,11 +89,11 @@ HTTP 응답 메시지 예시
 
 HTTP/1.1 200 OK Content-Type: text/html;charset=UTF-8 Content-Length: 3423
 
-```html
+
 <html>
 	<body>...</body>
 </html>
-```
+
 
 HTTP 메시지 구조
 
