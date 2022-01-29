@@ -11,3 +11,5 @@
 - [인터넷 네트워크](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/internet%20network.md)
 - [URI와 웹 브라우저 요청 흐름](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/URI%20and%20request.md)
 - [http 기초](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/http.md)
+## Java
+- [참조 타입](https://github.com/h06-Cpy/TIL/blob/main/java/reference.md)
