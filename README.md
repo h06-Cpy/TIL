@@ -14,4 +14,5 @@
 - [http 기초](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/http.md)
 ## Java
 - [참조 타입](https://github.com/h06-Cpy/TIL/blob/main/java/reference.md)
+- [배열](https://github.com/h06-Cpy/TIL/blob/main/java/array.md)
 - [객체 지향](https://github.com/h06-Cpy/TIL/blob/main/java/oop.md)
