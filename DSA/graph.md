@@ -59,14 +59,36 @@ connected component: 연결된 vertices의 모임
 
 Traversal(순회, 탐색): 모든 vertex를 한번씩 방문하는 것
 
-자료구조(스택, 큐)를 이용하여 방문 순서를 결정
+자료구조(스택, 큐)에다가 vertex를 넣고 뺴면서 방문 순서를 결정
 
 BFS(Breadth-First Traversal): queue를 이용하여 순회
 
-DFS(Depth-First Traversal): Stack을 이용하여 순회, 재귀함수를 이용할 경우 방문 표시를 나중에 함
+DFS(Depth-First Traversal): Stack을 이용하여 순회
+
+DFS with recursive: 재귀함수는 시스템 스택을 이용, 인접한 애들 먼저 방문부터하고 방문했다는 표시를 나중에 함
 
 adjacency matrix인 경우 O(V^2), list인 경우 O(V+E)
 
-Modified recursive DFS: edge로 연결 안된 vertex도 방문 가능, 언제 들어가고 나왔는지 time도 표시하도록 개선
+---
 
-Topological Sort:
+**Modified recursive DFS(mDFS)**: edge로 연결 안된 vertex도 방문 가능, 언제 들어가고 나왔는지 time도 표시하도록 개선
+
+Topological Sort: DAG(directed acyclic graph)를 정렬하는 방법, mDFS를 이용하여 vertex에서 빨리 나간 순서대로 연결리스트 맨앞으로 보내면 critical path를 찾을 수 있음, O(V+E)
+
+## Connected Component
+
+directed graph에서 strongly connected component(SCC) 찾기 O(V+E)
+
+1. mDFS(G) 호출해서 vertex나간 시간 계산
+2. mDFS(G^T) 호출하는데 나간 시간 내림차순으로 방문 (G^T는 엣지 방향 바꾼거)
+3. 그러면 G^T에서 엣지 방향대로 가다가 더이상 방문할 곳이 없으면 내림차순으로 다른 vertex에 방문할 것임 이런 끊김이 발생하면 이전 vertex까지 SCC임
+
+---
+
+undirected graph에서 connected component(CC) 찾기 O(E logV)
+
+1. 모든 vertex를 독립된 set으로 초기화
+2. 모든 엣지도 연결된 vertex들을 union함
+3. 그러면 find했을 때 같은 vertex가 나오면 CC이고 아니면 CC 아님
+
+## Shortest Path Algorithm
