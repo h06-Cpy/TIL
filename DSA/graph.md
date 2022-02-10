@@ -92,3 +92,45 @@ undirected graph에서 connected component(CC) 찾기 O(E logV)
 3. 그러면 find했을 때 같은 vertex가 나오면 CC이고 아니면 CC 아님
 
 ## Shortest Path Algorithm
+엣지에는 weight(cost)가 있으며 weight합이 가장 작은 path가 SP
+
+SP problem 종류
+
+- single source SP: 한 vertex에서 다른 모든 vertex로 갈때 SP(시작점만 정해짐)
+- single destination SP: 한 vertex로 갈떄 SP (도착점만 정해짐)
+- single pair SP: 시작점과 도착점이 정해짐
+- all pair SP 모든 vertex 쌍에 대해 SP
+
+**edge relaxation**: SP를 이루는 모든 subpath는 최소의 weight를 가짐
+
+Dijkstra, Bellman Ford 두가지 알고리즘 다 edge relaxation 기반으로 함
+
+### Dijkstra’s Algorithm
+
+가정
+
+- connected graph
+- edge weight는 음수가 없어야 함
+
+ SP 못 찾은 집합에서 하나를 SP 찾은 집합에 들이는 알고리즘
+
+과정
+
+1. SP 집합 S와 못찾은 집합 V-S를 찾기
+2. weight가 가장 작은 u(V-S에 있음)를 찾음
+3. u를 S에 편입시킴
+4. V-S가 empty될 떄까지 1~3 반복
+
+O(V^2+E), 만약 heap을 사용하면 O(V+E)logV
+
+음수 값에서는 다익스트라 적용안됨 → 벨만포드
+
+### Bellman-Ford’s Algorithm
+
+음수를 포함한 cycle에서는 적용 안됨, 음수 사이클을 찾으면 false 리턴함
+
+다익스트라는 한번 구한 path에서 다시 weight를 계산하지 않지만 벨만포드는 다시 계산함
+
+음수 weight가 있으면 최소 weight가 바뀌기 때문
+
+O(V*E)
