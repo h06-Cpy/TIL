@@ -92,7 +92,7 @@ undirected graph에서 connected component(CC) 찾기 O(E logV)
 3. 그러면 find했을 때 같은 vertex가 나오면 CC이고 아니면 CC 아님
 
 ## Shortest Path Algorithm
-엣지에는 weight(cost)가 있으며 weight합이 가장 작은 path가 SP
+엣지에는 weight(cost)가 있으며 weight합이 가장 작은 path, 즉 SP를 찾는 것이 문제
 
 SP problem 종류
 
@@ -102,6 +102,10 @@ SP problem 종류
 - all pair SP 모든 vertex 쌍에 대해 SP
 
 **edge relaxation**: SP를 이루는 모든 subpath는 최소의 weight를 가짐
+
+---
+
+single source SP부터 알아보자, 여기에는 다익스트라, 벨만포드가 쓰임
 
 Dijkstra, Bellman Ford 두가지 알고리즘 다 edge relaxation 기반으로 함
 
@@ -134,3 +138,25 @@ O(V^2+E), 만약 heap을 사용하면 O(V+E)logV
 음수 weight가 있으면 최소 weight가 바뀌기 때문
 
 O(V*E)
+
+---
+
+all pair SP 문제도 알아보자, 여기에는 플로이드 와셜 알고리즘이 쓰임
+
+weight를 정사각행렬로 표현(directed graph니까 출발→도착 표현 가능)
+
+행은 시작 노드, 열은 도착 노드임
+
+### Floyd-Warshall’s Algorithm
+
+SP를 찾을 때 한 vertex를 경유하는게 빠른가? → 정사각행렬에서 weight 값 수정
+
+아닌가? → wieght값 그대로 놔두기
+
+이렇게 해서 한 vertex를 경유하는 것부터 모든 vertex를 경유하는 경로까지 모두 비교함
+
+경유하는 vertex에 해당하는 행은 weight가 무조건 고정
+
+O(V^3)
+
+## Minimum Spanning Tree Algorithm
