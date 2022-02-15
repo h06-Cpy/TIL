@@ -159,4 +159,26 @@ SP를 찾을 때 한 vertex를 경유하는게 빠른가? → 정사각행렬에
 
 O(V^3)
 
-## Minimum Spanning Tree Algorithm
+## Minimum Spanning Tree Algorithm(MST)
+
+MST: 최소 weight(cost)의 spanning tree
+
+### Prim’s Algorithm
+
+다익스트라랑 비슷하게 집합 V-S에 있는 원소를 S로 편입시키는 것임
+
+편입시키는 기준은 인접한 엣지 중 cost 최소
+
+cost 최소인게 2개 이상이면 random하게 고르거나 vertex값 작은거 고름
+
+O(V^2), heap 사용 시 O((V+E)logV)
+
+### Kruskal’s Algorithm
+
+인접한 vertex에서 고르는 프림과 달리 크루스칼은 cost 최소인 엣지 자체를 고름
+
+엣지를 고를 때 사이클을 만들지 않아야 함
+
+O(ElogE)
+
+## Maximum Flow Algorithm
