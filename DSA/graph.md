@@ -182,3 +182,16 @@ O(V^2), heap 사용 시 O((V+E)logV)
 O(ElogE)
 
 ## Maximum Flow Algorithm
+directed graph에서 source → sink로 가는 최대 flow 값을 구하는 것이 문제
+
+residual network: capacity - flow를 연산해서 완전 양수인 net flow만 계산
+
+path augmenting: residual network로 부터 만들어진 simple path
+
+### Ford-Fulkerson Algorithm
+
+source → sink로 가는 simple path를 찾고 최소 flow를 기준으로 path augmentation 함
+
+simple path를 못찾을때까지 하면 지금까지 기준으로 했던 최소 flow들의 합을 구하면 그것이 maximum flow임
+
+f가 maximum flow일 때 O(f*E)
