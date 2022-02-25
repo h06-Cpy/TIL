@@ -116,13 +116,13 @@ HTTP 메시지 구조
 
 - HTTP 버전
 - 상태 코드: 200(성공), 400(클라 요청 오류), 500(서버 내부 오류)
-- 이유 문고: 사람이 이해라 수 있는 짧은 설명글 ex) OK
+- 이유 문구: 사람이 이해할 수 있는 짧은 설명글 ex) OK
 
 ### 헤더
 
-header-field = field-name: OWS field-value OWS 형태
+‘header-field = field-name: OWS field-value OWS’ 형태
 
-OWS는 띄어쓰기 허용
+OWS는 띄어쓰기 허용이라는 뜻
 
 field-name은 대소문자 구분 없고 field-value는 구분함
 
