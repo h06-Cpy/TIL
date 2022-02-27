@@ -102,3 +102,110 @@ username, age, file 등...
 - GET: 조회, 쿼리 파라미터로 데이터 전달
 - Content-Type: application/json을 주로 사용(예전엔 XML이 표준 지금은 JSON 표준)
     - TEXT, XML, JSON 등
+## HTTP API 설계 예시
+
+- 컬렉션
+    - POST 기반 등록
+    - 예) 회원 관리 API 제공
+- 스토어
+    - PUT 기반 등록
+    - 예) 정적 컨텐츠 관리 ,원격 파일 관리
+- HTML FORM 사용
+    - 웹 페이지 회원 관리
+    - GET, POST만 지원
+
+### POST 기반 등록
+
+회원 관리 시스템 api 설계해보자
+
+- 회원 목록: /members → GET
+- 회원 등록: /members → POST
+- 회원 조회: /members/{id} → GET
+- 회원 수정: /members/{id} → PATCH, PUT, POST
+- 회원 삭제: /members/{id} → DELETE
+
+---
+
+POST 기반 등록 특징
+
+- 클라이언트는 등록될 리소스 URI를 모른다(어느 폴더에 있는지만 알듯)
+    - 위의 예시에서 /members 폴더까지는 안다
+- **서버가 새로 등록된 리소스 URI를 생성해준다**
+    - HTTP/1.1 201 Created
+        
+        Location: /members/100
+        
+
+리소스 식별자 100이 생김! 클라이언트가 아니라 서버가 생성해준 것임
+
+- 컬렉션
+    - 서버가 관리하는 리소스 디렉토리
+    - 서버가 리소스의 URI를 생성하고 관리
+    - 여기서 컬렉션은 /members
+
+대부분 POST 기반 collection을 씀!
+
+### PUT 기반 등록
+
+파일 관리 시스템 api를 설계해보자
+
+- 파일 목록: /files → GET
+- 파일 조회: /files/{filename} → GET
+- 파일 등록: /files/{filename} → PUT
+- 파일 삭제: files/{filename} → DELETE
+- 파일 대량 등록: /files → POST
+
+---
+
+PUT 기반 등록 특징
+
+- 클라이언트가 리소스 URI를 알아야 함(서버가 식별자 생성 안함)
+- **클라이언트가 직접 리소스의 URI를 지정함**
+- 스토어
+    - 클라이언트가 관리하는 리소스 저장소
+    - 클라이언트가 리소스의 URI를 알고 관리
+    - 여기서 스토어는 /files
+
+스토어는 거의 안씀, 파일 관리나 게시판 관리에서는 쓰일 수 있음
+
+### HTML FORM 사용
+
+위의 2개 예시는 여러 메서드 사용 가능했지만 여기서는 GET, POST만 사용 가능!
+
+어케 설계할까?
+
+- 회원 목록 /members -> GET
+- 회원 등록 폼 /members/new -> GET
+- 회원 등록 /members/new, /members -> POST
+- 회원 조회 /members/{id} -> GET
+- 회원 수정 폼 /members/{id}/edit -> GET
+- 회원 수정 /members/{id}/edit, /members/{id} -> POST
+- 회원 삭제 /members/{id}/delete -> POST
+
+---
+
+리소스 기반으로만 URI를 설계하면 좋지만 그게 힘듦
+
+그러므로 컨트롤 URI 사용!
+
+컨트롤 URI 복습
+
+- 동사로 된 리소스 경로
+- 위의 예시에서 /new, /edit, /delete
+- HTTP 메서드로 해결하기 애매한 경우에 사용할 수 있음
+
+---
+
+uri 설계 개념 참고(무조건 이걸 따르는 건 아님 걍 이렇게 하면 좋다)
+
+- 문서(document)
+    - 단일 개념(파일 하나, 객체 인스턴스, 데이터베이스 row)
+- 컬렉션(collection)
+- 스토어(store)
+- 컨트롤러(controller), 컨트롤 URI
+    - 문서, 컬렉션, 스토어로 해결하기 어려운 추가 프로세스 실행
+
+---
+출처: 모든 개발자를 위한 HTTP 웹 기본 지식 - 김영한님
+
+https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard
