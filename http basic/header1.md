@@ -15,8 +15,63 @@
 - Content-Language: 표현 데이터의 자연 언어, 예) ko, en, en-US
 - Content-Length: 표현 데이터의 길이
     - 바이트 단위
-    - Transfer-Enconding 사용 시 Content-Length 사용 불가
+    - Transfer-Encoding 사용 시 Content-Length 사용 불가
 
 표현 헤더는 전송, 응답 모두 사용됨
 
 ## 협상(콘텐츠 네고시에이션)
+
+클라이언트가 선호하는 표현을 요청하는 것
+
+- Accept: 클라가 선호하는 미디어 타입 전달
+- Accept-Charset: 클라가 선호하는 문자 인코딩
+- Accept-Encoding: 클라가 선호하는 압축 인코딩
+- Accept-Language: 클라가 선호하는 자연 연어
+
+협상 헤더는 요청 때 사용
+
+---
+
+Accept-Language에서 선호하는 언어 보내줬는데 서버에서 지원 안해주면 어캄?
+
+### 우선순위
+
+- Quality Values(q) 값을 사용
+    - 0~1, 클 수록 높은 우선순위이고 생략하면 1임
+    - 일케 해서 여러 언어에 대한 선호도를 서버에게 보낼 수 있음
+- 구체적인 것이 우선함, Accept에서 미디어 타입에 대한 정보가 구체적일 수록 우선순위 높음
+- 구체적인 것을 기준으로 q값을
+
+## 전송 방식
+
+- 단순 전송: Content-Length
+- 압축 전송: Content-Encoding
+- 분할 전송: Transfer-Encoding: chunked, 작은 바이트 단위로 쪼개서 보냄
+- 범위 전송: Content-Range, ex) 리소스 절반 받았으니 나머지 주세요 요청받으면 나머지 보냄
+
+## 일반 정보
+
+- From: 유저 에이전트의 이메일 정보
+- **Referer**: 이전 웹페이지 주소
+    - 유입 경로 분석 가능, 요청에서 사용
+- User-Agent: 유저 에이전트 애플리케이션 정보(브라우저 정보 등)
+    - 어떤 종류 브라우저에서 장애가 발생하는지 파악 가능, 요청에서 사용
+- Server: 요청을 처리하는 origin 서버 소프트웨어 정보, 응답에서 사용
+- Date: 메시지가 발생한 날짜와 시간, 응답에서 사용
+
+## 특별한 정보
+
+- **Host**: 요청한 호스트 정보, 필수값임!
+    - 서버에서 애플리케이션이 여러개 구동될 때 어느 클라가 애플리케이션에 접근하는지 알려줌
+- Location: 3xx 응답 결과에서 Location 헤더가 있을 때 그 위치로 리다이렉트함
+    - 2xx에서는 요청에 의해 생성된 리소스 URI
+- Allow: 허용 가능한 HTTP 메서드를 클라에게 알려줌, 405 Method Not Allowed 응답에서 포함
+- Retry-After: 503 Service Unavailable에서  클라에게 언제까지 서비스 불능인지 알려줌
+
+## 인증
+
+- Authorization: 클라이언트 인증 정보를 서버에 전달
+- WWW-Authenticate: 리소스 접근 시 필요한 인증 방법 정의
+    - 401 Unauthorized 응답과 함께 사용
+
+## 쿠키
