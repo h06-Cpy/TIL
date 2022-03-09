@@ -17,6 +17,7 @@
 - [http 메서드 활용](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/useofmethod.md)
 - [http 상태코드](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/statuscode.md)
 - [http 헤더1](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/header1.md)
+- [http 헤더2](https://github.com/h06-Cpy/TIL/blob/main/http%20basic/header2.md)
 ## Java
 - [참조 타입](https://github.com/h06-Cpy/TIL/blob/main/java/reference.md)
 - [배열](https://github.com/h06-Cpy/TIL/blob/main/java/array.md)
